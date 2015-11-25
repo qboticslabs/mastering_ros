@@ -1,0 +1,17 @@
+<launch>
+
+
+  <!-- Launch Gazebo  -->
+  <include file="$(find seven_dof_arm_gazebo)/launch/seven_dof_arm_world.launch" />   
+
+  <!-- ros_control seven dof arm launch file -->
+  <include file="$(find seven_dof_arm_gazebo)/launch/seven_dof_arm_gazebo_states.launch" />   
+
+  <!-- ros_control position control dof arm launch file -->
+  <!--<include file="$(find seven_dof_arm_gazebo)/launch/seven_dof_arm_gazebo_position.launch" />  -->
+
+  <!-- ros_control trajectory control dof arm launch file -->
+  <include file="$(find seven_dof_arm_gazebo)/launch/seven_dof_arm_trajectory_controller.launch" />    
+
+
+</launch>

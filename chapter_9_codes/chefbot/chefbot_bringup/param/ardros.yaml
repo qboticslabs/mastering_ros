@@ -1,0 +1,25 @@
+port: /dev/ttyACM0
+#port: /dev/ttyUSB0
+baudRate: 115200
+batteryStateParams: {voltageLowlimit: 12.0, voltageLowLowlimit: 11.7}
+
+# wheel diameter [m], trackwidth [m], ticks per revolution
+driveGeometry: {wheelDiameter: 0.09, trackWidth: 0.01, countsPerRevolution: 4200}
+#driveGeometry: {wheelDiameter: 0.077, trackWidth: 0.373, countsPerRevolution: 9750}
+
+# The speed controller parameters inlcude the P and I gains for the three PI controllers and the command timeout for the speed controller in seconds.
+# If no velocity command arrives for more than the specified timeout then the speed controller will stop the robot.
+#speedController: {velocityPParam: 0.1, velocityIParam: 0.1, turnPParam: 0.4, turnIParam: 0.5, commandTimeout: 1.0} 
+speedController: {velocityPParam: 0, velocityIParam: 0, turnPParam: 0, turnIParam: 0, commandTimeout: 1.0} 
+
+#speedController: {velocityPParam: 0.01, velocityIParam: 0.01, turnPParam: 0.04, turnIParam: 0.05, commandTimeout: 1.0} 
+#speedController: {velocityPParam: 0.03, velocityIParam: 0.03, turnPParam: 0.04, turnIParam: 0.03, commandTimeout: 1.0} 
+#speedController: {velocityPParam: 0.02, velocityIParam: 0.06, turnPParam: 0.04, turnIParam: 0.05, commandTimeout: 1.0} 
+#speedController: {velocityPParam: 1.5, velocityIParam: 0.2, turnPParam: 0.001, turnIParam: 0.02, commandTimeout: 1.0} 
+#speedController: {velocityPParam: 1.5, velocityIParam: 0.2, turnPParam: 0.1, turnIParam: 0.1, commandTimeout: 1.0} 
+#speedController: {velocityPParam: 0.1, velocityIParam: 0.2, turnPParam: 0.05, turnIParam: 0.5, commandTimeout: 1.0} 
+
+
+
+
+

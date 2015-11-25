@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <model name="object">
+<!--    <static>false</static> -->
+    <link name="link">
+
+      <inertial>
+        <pose>0 0 0.3 0 0 0</pose>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.00058</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00058</iyy>
+          <iyz>0</iyz>
+          <izz>0.00019</izz>
+        </inertia>
+      </inertial>
+
+      <collision name="object">
+        <pose>0 0 0.3 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.02 0.01 0.02</size>
+          </box>
+        </geometry>
+
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>10000000.0</kp>
+              <kd>1.0</kd>
+              <min_depth>0.001</min_depth>
+              <max_vel>0.01</max_vel>
+            </ode>
+          </contact>
+        </surface>
+
+      </collision>
+
+      <visual name="visual1">
+        <pose>0 0 0.3 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.02 0.005 0.02</size>
+          </box>
+        </geometry>
+
+      </visual>
+
+      </link>
+
+  </model>
+</sdf>

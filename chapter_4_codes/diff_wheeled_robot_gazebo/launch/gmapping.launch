@@ -1,0 +1,63 @@
+<launch>
+  <arg name="scan_topic" default="scan" />
+
+  <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+    <param name="base_frame" value="base_footprint"/>
+    <param name="odom_frame" value="odom"/>
+    <param name="map_update_interval" value="5.0"/>
+    <param name="maxUrange" value="6.0"/>
+    <param name="maxRange" value="8.0"/>
+    <param name="sigma" value="0.05"/>
+    <param name="kernelSize" value="1"/>
+    <param name="lstep" value="0.05"/>
+    <param name="astep" value="0.05"/>
+    <param name="iterations" value="5"/>
+    <param name="lsigma" value="0.075"/>
+    <param name="ogain" value="3.0"/>
+    <param name="lskip" value="0"/>
+    <param name="minimumScore" value="100"/>
+    <param name="srr" value="0.01"/>
+    <param name="srt" value="0.02"/>
+    <param name="str" value="0.01"/>
+    <param name="stt" value="0.02"/>
+    <param name="linearUpdate" value="0.5"/>
+    <param name="angularUpdate" value="0.436"/>
+    <param name="temporalUpdate" value="-1.0"/>
+    <param name="resampleThreshold" value="0.5"/>
+    <param name="particles" value="80"/>
+  <!--
+    <param name="xmin" value="-50.0"/>
+    <param name="ymin" value="-50.0"/>
+    <param name="xmax" value="50.0"/>
+    <param name="ymax" value="50.0"/>
+  make the starting size small for the benefit of the Android client's memory...
+  -->
+    <param name="xmin" value="-1.0"/>
+    <param name="ymin" value="-1.0"/>
+    <param name="xmax" value="1.0"/>
+    <param name="ymax" value="1.0"/>
+
+    <param name="delta" value="0.05"/>
+    <param name="llsamplerange" value="0.01"/>
+    <param name="llsamplestep" value="0.01"/>
+    <param name="lasamplerange" value="0.005"/>
+    <param name="lasamplestep" value="0.005"/>
+    <remap from="scan" to="$(arg scan_topic)"/>
+  </node>
+
+
+
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find diff_wheeled_robot_gazebo)/param/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find diff_wheeled_robot_gazebo)/param/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find diff_wheeled_robot_gazebo)/param/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find diff_wheeled_robot_gazebo)/param/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find diff_wheeled_robot_gazebo)/param/base_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find diff_wheeled_robot_gazebo)/param/dwa_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find diff_wheeled_robot_gazebo)/param/move_base_params.yaml" command="load" />
+
+<!--    <remap from="cmd_vel" to="navigation_velocity_smoother/raw_cmd_vel"/>
+    <remap from="odom" to="$(arg odom_topic)"/> -->
+  </node>
+
+</launch>

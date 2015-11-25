@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<sdf version="1.4">
+  <world name="default">
+    <plugin name="hello_world" filename="libhello_world.so"/>
+  </world>
+</sdf> 
+

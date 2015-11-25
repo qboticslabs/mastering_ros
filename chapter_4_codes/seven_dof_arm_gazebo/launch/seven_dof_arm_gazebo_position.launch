@@ -1,0 +1,16 @@
+<launch>
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find seven_dof_arm_gazebo)/config/seven_dof_arm_gazebo_joint_position.yaml" command="load"/>
+
+
+  <!-- load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+	output="screen" ns="/seven_dof_arm" args="joint1_position_controller
+					  	  joint2_position_controller
+					          joint3_position_controller
+					          joint4_position_controller
+					          joint5_position_controller
+					          joint6_position_controller
+					          joint7_position_controller"/>
+
+</launch>

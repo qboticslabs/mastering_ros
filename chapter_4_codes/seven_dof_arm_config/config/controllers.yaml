@@ -1,0 +1,21 @@
+controller_manager_ns: controller_manager
+controller_list:
+  - name: seven_dof_arm/seven_dof_arm_joint_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - shoulder_pan_joint
+      - shoulder_pitch_joint
+      - elbow_roll_joint
+      - elbow_pitch_joint
+      - wrist_roll_joint
+      - wrist_pitch_joint
+      - gripper_roll_joint
+  - name: seven_dof_arm/gripper_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - finger_joint1
+      - finger_joint2

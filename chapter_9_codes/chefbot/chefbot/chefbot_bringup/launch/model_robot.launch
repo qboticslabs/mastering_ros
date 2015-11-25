@@ -1,0 +1,12 @@
+<launch>
+<!-- This allows you to see the robot model without starting it up.  -->
+<!-- URDF model -->
+  <arg name="urdf_file" default="$(find xacro)/xacro.py '$(find chefbot_description)/urdf/chefbot_base.xacro'" />
+  <param name="robot_description" command="$(arg urdf_file)" />
+<!-- The robot_state_publisher publishes the joints, otherwise your model is a pile white shapes all originating from 0, 0, 0 :) -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="5.0" />
+  </node>
+<!-- Launch rviz with our favorite config file -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find chefbot_bringup)/rviz/robot.rviz" />
+</launch>

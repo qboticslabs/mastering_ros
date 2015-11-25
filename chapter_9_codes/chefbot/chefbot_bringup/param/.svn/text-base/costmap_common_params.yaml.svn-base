@@ -1,0 +1,18 @@
+# for details see: http://www.ros.org/wiki/navigation/Tutorials/RobotSetup
+
+obstacle_range: 2.5
+raytrace_range: 3.0
+footprint: [[0.265, 0.278], [0.04, 0.193], [-0.04, 0.193], [-0.282, 0.178], [-0.282, -0.178], [-0.04, -0.193], [0.04, -0.193], [0.265, -0.278]]
+#footprint: [[0.075, 0.178], [0.04, 0.193], [-0.04, 0.193], [-0.282, 0.178], [-0.282, -0.178], [-0.04, -0.193], [0.04, -0.193], [0.075, -0.178]]
+#robot_radius: ir_of_robot
+inflation_radius: 0.4
+
+observation_sources: laser_scan_sensor
+
+laser_scan_sensor: {sensor_frame: openni_depth_frame, data_type: LaserScan, topic: scan, marking: true, clearing: true}
+
+map_type: costmap
+transform_tolerance: 0.4 # seconds
+
+
+

@@ -1,0 +1,3 @@
+my_controller_name:
+    type: my_controller_pkg/MyControllerPlugin
+    joint_name: r_shoulder_pan_joint

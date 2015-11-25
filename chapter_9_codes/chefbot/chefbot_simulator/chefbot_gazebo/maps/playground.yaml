@@ -1,0 +1,6 @@
+free_thresh: 0.196
+image: playground.pgm
+negate: 0
+occupied_thresh: 0.65
+origin: [-6.8999999999999915, -5.8999999999999915, 0.0]
+resolution: 0.05

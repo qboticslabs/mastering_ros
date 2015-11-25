@@ -1,0 +1,41 @@
+TrajectoryPlannerROS:
+  # for details see: http://www.ros.org/wiki/base_local_planner
+  max_vel_x: 0.5
+  min_vel_x: 0.02
+  max_rotational_vel: 1.0   # 0.1 rad/sec = 5.7 degree/sec
+  min_in_place_rotational_vel: 0.2
+
+  acc_lim_th: 1.0
+  acc_lim_x: 0.2
+  acc_lim_y: 0.2
+
+  holonomic_robot: false
+
+  # goal tolerance parameters
+  yaw_goal_tolerance: 0.1         # 0.1 means 5.7 degrees
+  xy_goal_tolerance: 0.2
+  latch_xy_goal_tolerance: true
+
+  # Forward Simulation Parameters
+  sim_time: 1.5                    # The amount of time to forward-simulate trajectories in seconds
+  sim_granularity: 0.025           # The step size, in meters, to take between points on a given trajectory
+  angular_sim_granularity: 0.05    # The step size, in radians, to take between angular samples on a given trajectory.
+  vx_samples: 10                   # The number of samples to use when exploring the x velocity space
+  vtheta_samples: 20               # The number of samples to use when exploring the theta velocity space
+
+
+  # Trajectory Scoring Parameters
+  meter_scoring: true              # If true, distances are expressed in meters; otherwise grid cells
+  path_distance_bias: 0.6          # The weighting for how much the controller should stay close to the path it was given
+  goal_distance_bias: 0.8          # The weighting for how much the controller should attempt to reach its local goal, also controls speed
+  occdist_scale: 0.01              # The weighting for how much the controller should attempt to avoid obstacles
+                                   # occdist_scale * (maximum obstacle cost along the trajectory in obstacle cost (0-254))
+
+  heading_lookahead: 0.325         # How far to look ahead in meters when scoring different in-place-rotation trajectories
+  oscillation_reset_dist: 0.05     # How far the robot must travel in meters before oscillation flags are reset  
+
+  publish_cost_grid: true
+  dwa: false                        # Whether to use the Dynamic Window Approach (DWA)_ or whether to use Trajectory Rollout 
+                                   # (NOTE: In our experience DWA worked as well as Trajectory Rollout and is computationally less expensive.
+                                   # It is possible that robots with extremely poor acceleration limits could gain from running Trajectory Rollout,
+                                   # but we recommend trying DWA first.) 

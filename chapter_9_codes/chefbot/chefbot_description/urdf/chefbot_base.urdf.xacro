@@ -1,0 +1,400 @@
+<?xml version="1.0" ?>
+<!-- 
+  This is not a standalone urdf for kobuki. It simply defines the 'kobuki' tag that can
+  be incorporated by other urdf files (e.g. turtlebot).
+  
+  See kobuki_standalone.urdf.xacro for a standalone urdf to be tested with
+      kobuki_description/launch/view_model.launch
+ -->
+<robot name="chefbot" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find chefbot_description)/urdf/common_properties.urdf.xacro"/>
+  <xacro:include filename="$(find chefbot_description)/urdf/chefbot_base_gazebo.urdf.xacro"/>
+
+  <!-- Chefbot --> 
+  <xacro:macro name="kobuki">   
+    <link name="base_footprint"/>
+    <!--
+       Base link is set at the bottom of the base mould.
+       This is done to be compatible with the way base link
+       was configured for turtlebot 1. Refer to
+       
+       https://github.com/turtlebot/turtlebot/issues/40
+       
+       To put the base link at the more oft used wheel
+       axis, set the z-distance from the base_footprint
+       to 0.352.
+      -->
+    <joint name="base_joint" type="fixed">
+      <origin xyz="0 0 0.0102" rpy="0 0 0" />
+      <parent link="base_footprint"/>
+      <child link="base_link" />
+    </joint>
+    <link name="base_link">
+      <visual>
+        <geometry>
+          <!-- new mesh -->
+          <mesh filename="package://chefbot_description/meshes/base_plate.dae" />
+        </geometry>
+
+<!--        <origin xyz="0.001 0 0.05199" rpy="0 0 ${M_PI/2}"/> -->
+	 <origin xyz="0.001 0 -0.034" rpy="0 0 ${M_PI/2}"/>
+      </visual>
+      <collision>
+        <geometry>
+          <cylinder length="0.10938" radius="0.178"/>
+        </geometry>
+        <origin xyz="0.0 0 0.05949" rpy="0 0 0"/>
+      </collision>
+      <inertial>
+        <!-- COM experimentally determined -->
+        <origin xyz="0.01 0 0"/>
+        <mass value="2.4"/> <!-- 2.4/2.6 kg for small/big battery pack -->
+        <!-- Kobuki's inertia tensor is approximated by a cylinder with homogeneous mass distribution
+             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
+             m = 2.4 kg; h = 0.09 m; r = 0.175 m
+             ixx = 1/12 * m * (3 * r^2 + h^2)
+             iyy = 1/12 * m * (3 * r^2 + h^2)
+             izz = 1/2 * m * r^2 
+          -->
+        <inertia ixx="0.019995" ixy="0.0" ixz="0.0"
+                 iyy="0.019995" iyz="0.0" 
+                 izz="0.03675" />
+      </inertial>
+    </link>
+    
+
+
+
+
+    <joint name="wheel_left_joint" type="continuous">
+      <parent link="base_link"/>
+      <child link="chefbot_wheel_left_link"/>
+      <origin xyz="0 ${0.28/2} 0.026" rpy="${-M_PI/2} 0 0"/>
+      <axis xyz="0 0 1"/>
+    </joint>
+    <link name="chefbot_wheel_left_link">
+      <visual>
+        <geometry>
+          <mesh filename="package://chefbot_description/meshes/wheel.dae"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+      </visual>
+      <collision>
+        <geometry>
+          <cylinder length="0.0206" radius="0.0352"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </collision>
+      <inertial>
+        <mass value="0.01" />
+        <origin xyz="0 0 0" />
+        <inertia ixx="0.001" ixy="0.0" ixz="0.0"
+                 iyy="0.001" iyz="0.0" 
+                 izz="0.001" />
+      </inertial>
+    </link>
+    
+    <joint name="wheel_right_joint" type="continuous">
+      <parent link="base_link"/>
+      <child link="chefbot_wheel_right_link"/>
+      <origin xyz="0.00 -${0.28/2} 0.026" rpy="${-M_PI/2} 0 0"/>
+      <axis xyz="0 0 1"/>
+    </joint>
+    <link name="chefbot_wheel_right_link">
+      <visual>
+        <geometry>
+          <mesh filename="package://chefbot_description/meshes/wheel.dae"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+      </visual>
+      <collision>
+        <geometry>
+          <cylinder length="0.0206" radius="0.0350"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </collision>
+      <inertial>
+        <mass value="0.01" />
+        <origin xyz="0 0 0" />
+        <inertia ixx="0.001" ixy="0.0" ixz="0.0"
+                 iyy="0.001" iyz="0.0" 
+                 izz="0.001" />
+      </inertial>
+    </link>
+
+
+
+
+
+<!--
+
+
+	  <link name="left_axle_link">
+	    <inertial>
+	      <origin xyz="0 0 0"/>
+	      <mass value="0.01" />
+	      <inertia ixx="0.001" ixy="0.0" ixz="0.0"
+	        iyy="0.001" iyz="0.0" izz="0.001" />
+	    </inertial>
+	
+	    <visual>
+	      <origin xyz="0 0 0" rpy="0 1.5707 1.5707" />
+	      <geometry>
+            <cylinder radius="0.00635" length = "0.00635"/>
+	      </geometry>
+          <material name ="light_grey" />
+	    </visual>
+	
+	    <collision>
+	      <origin xyz="0 0 0" rpy="0 1.5707 1.5707" />
+	      <geometry>
+            <cylinder radius="0.00635" length = "0.00635"/>
+	      </geometry>
+	    </collision>
+	  </link>
+      
+	  <joint name="left_axle_joint" type="fixed">
+	    <origin xyz="0 0.171475 0.0178" rpy="0 0 0"/>
+	    <parent link="base_link"/>
+	    <child link="left_axle_link"/>
+	    <axis xyz="0 1 0"/>
+	  </joint>
+
+	  <link name="right_axle_link">
+	    <inertial>
+	      <origin xyz="0 0 0"/>
+	      <mass value="0.01" />
+	      <inertia ixx="0.001" ixy="0.0" ixz="0.0"
+	        iyy="0.001" iyz="0.0" izz="0.001" />
+	    </inertial>
+	
+	    <visual>
+	      <origin xyz="0 0 0" rpy="0 1.5707 1.5707" />
+	      <geometry>
+            <cylinder radius="0.00635" length = "0.00635"/>
+	      </geometry>
+          <material name ="light_grey" />
+	    </visual>
+	
+	    <collision>
+	      <origin xyz="0 0 0" rpy="0 1.5707 1.5707" />
+	      <geometry>
+            <cylinder radius="0.00635" length = "0.00635"/>
+	      </geometry>
+	    </collision>
+	  </link>
+      
+	  <joint name="right_axle_joint" type="fixed">
+	    <origin xyz="0 -0.171475 0.0178" rpy="0 0 0"/>
+	    <parent link="base_link"/>
+	    <child link="right_axle_link"/>
+	    <axis xyz="0 1 0"/>
+	  </joint>
+
+	  <link name="left_wheel_link">
+	    <inertial>
+	      <origin xyz="0 0 0"/>
+	      <mass value="0.01" />
+	      <inertia ixx="0.001" ixy="0.0" ixz="0.0"
+	        iyy="0.001" iyz="0.0" izz="0.001" />
+	    </inertial>
+	
+	    <visual>
+	      <origin xyz="0 0 0" rpy="0 1.5707 1.5707" />
+	      <geometry>
+            <cylinder radius="0.0762" length = "0.03175"/>
+	      </geometry>
+          <material name ="black" />
+	    </visual>
+	
+	    <collision>
+	      <origin xyz="0 0 0" rpy="0 1.5707 1.5707" />
+	      <geometry>
+            <cylinder radius="0.0762" length = "0.03175"/>
+	      </geometry>
+	    </collision>
+	  </link>
+
+        -->
+
+<!--	  <joint name="left_wheel_joint" type="fixed">
+	    <origin xyz="0 0.01905 0" rpy="0 0 0"/>
+	    <parent link="left_axle_link"/>
+	    <child link="left_wheel_link"/>
+	    <axis xyz="0 1 0"/>
+	  </joint>
+	
+	  <link name="right_wheel_link">
+	    <inertial>
+	      <origin xyz="0 0 0"/>
+	      <mass value="0.01" />
+	      <inertia ixx="0.001" ixy="0.0" ixz="0.0"
+	        iyy="0.001" iyz="0.0" izz="0.001" />
+	    </inertial>
+	
+	    <visual>
+	      <origin xyz="0 0 0" rpy="0 1.5707 1.5707" />
+	      <geometry>
+            <cylinder radius="0.0762" length = "0.03175"/>
+	      </geometry>
+          <material name ="black" />
+	    </visual>
+	
+	    <collision>
+	      <origin xyz="0 0 0" rpy="0 1.5707 1.5707" />
+	      <geometry>
+            <cylinder radius="0.0762" length = "0.03175"/>
+	      </geometry>
+	    </collision>
+	  </link>
+	-->
+        <!-- Fixed because we never rotate it anyway, it is just for show -->
+        <!-- NOTE This may prevent gazebo from working with this model -->
+<!--	  <joint name="right_wheel_joint" type="fixed">
+	    <origin xyz="0 -0.01905 0" rpy="0 0 0"/>
+	    <parent link="right_axle_link"/>
+	    <child link="right_wheel_link"/>
+	    <axis xyz="0 1 0"/>
+	  </joint>
+	
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <joint name="caster_front_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="chefbot_caster_front_link"/>
+      <origin xyz="0.115 0.0 0.007" rpy="${-M_PI/2} 0 0"/>
+    </joint>
+    <link name="chefbot_caster_front_link">
+      <collision>
+        <geometry>
+          <cylinder length="0.0176" radius="0.017"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </collision>      
+      <inertial>
+        <mass value="0.01" />
+        <origin xyz="0 0 0" />
+        <inertia ixx="0.001" ixy="0.0" ixz="0.0"
+                 iyy="0.001" iyz="0.0" 
+                 izz="0.001" />
+      </inertial>
+    </link>
+    
+    <joint name="chefbot_caster_back_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="chefbot_caster_back_link"/>
+      <origin xyz="-0.135 0.0 0.009" rpy="${-M_PI/2} 0 0"/>
+    </joint>
+    <link name="chefbot_caster_back_link">
+      <collision>
+        <geometry>
+          <cylinder length="0.0176" radius="0.017"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </collision>      
+      <inertial>
+        <mass value="0.01" />
+        <origin xyz="0 0 0" />
+        <inertia ixx="0.001" ixy="0.0" ixz="0.0"
+                 iyy="0.001" iyz="0.0" 
+                 izz="0.001" />
+      </inertial>
+    </link>
+    
+    <!-- Kobuki's sensors -->
+    <joint name="gyro_joint" type="fixed">
+      <axis xyz="0 1 0"/>
+      <origin xyz="0.056 0.062 0.0202" rpy="0 0 0"/>
+      <parent link="base_link"/>
+      <child link="gyro_link"/>
+    </joint>
+    <link name="gyro_link">
+      <inertial>
+        <mass value="0.001"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="0.0001" ixy="0" ixz="0" 
+                 iyy="0.000001" iyz="0"
+                 izz="0.0001"/>
+      </inertial>
+    </link>
+
+    <joint name="cliff_sensor_left_joint" type="fixed">
+      <origin xyz="0.08734 0.13601 0.0214" rpy="0 ${M_PI/2} 0" />
+      <parent link="base_link"/>
+      <child link="cliff_sensor_left_link" />
+    </joint>
+    <link name="cliff_sensor_left_link">
+      <inertial>
+        <mass value="0.0001" />
+        <origin xyz="0 0 0" />
+        <inertia ixx="0.0001" ixy="0.0" ixz="0.0"
+                 iyy="0.0001" iyz="0.0" 
+                 izz="0.0001" />
+      </inertial>
+    </link>
+
+    <joint name="cliff_sensor_right_joint" type="fixed">
+      <origin xyz="0.085 -0.13601 0.0214" rpy="0 ${M_PI/2} 0" />
+      <parent link="base_link"/>
+      <child link="cliff_sensor_right_link" />
+    </joint>
+    <link name="cliff_sensor_right_link">
+      <inertial>
+        <mass value="0.0001" />
+        <origin xyz="0 0 0" />
+        <inertia ixx="0.0001" ixy="0.0" ixz="0.0"
+                 iyy="0.0001" iyz="0.0" 
+                 izz="0.0001" />
+      </inertial>
+    </link>
+    
+    <joint name="cliff_sensor_front_joint" type="fixed">
+      <origin xyz="0.156 0.00 0.0214" rpy="0 ${M_PI/2} 0" />
+      <parent link="base_link"/>
+      <child link="cliff_sensor_front_link" />
+    </joint>
+    <link name="cliff_sensor_front_link">
+      <inertial>
+        <mass value="0.0001" />
+        <origin xyz="0 0 0" />
+        <inertia ixx="0.0001" ixy="0.0" ixz="0.0"
+                 iyy="0.0001" iyz="0.0" 
+                 izz="0.0001" />
+      </inertial>
+    </link>
+    
+    <!-- Kobuki Gazebo simulation details -->
+    <kobuki_sim/>
+    
+  </xacro:macro>
+</robot>

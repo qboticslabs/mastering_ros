@@ -1,0 +1,8 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: cool5000_description
+    relative_path: robots/cool5000_description.URDF
+  SRDF:
+    relative_path: config/cool5000_description.srdf
+  CONFIG:
+    generated_timestamp: 1445411347

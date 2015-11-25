@@ -1,0 +1,22 @@
+
+<launch>
+  <node name="hokuyo" pkg="hokuyo_node" type="hokuyo_node" respawn="false" output="screen">
+  
+    <!-- Starts up faster, but timestamps will be inaccurate. --> 
+    <param name="calibrate_time" type="bool" value="false"/> 
+    
+
+    <param name="min_ang" type="double" value="-0.7854"/>
+    <param name="max_ang" type="double" value="0.7854"/>
+
+    <!-- Set the port to connect to here -->
+    <param name="port" type="string" value="/dev/ttyACM0"/> 
+  
+    <param name="intensity" type="bool" value="false"/>
+  </node>
+  
+   
+  <node name="rviz" pkg="rviz" type="rviz" respawn="false" output="screen" args="-d $(find hokuyo_node)/hokuyo_test.vcg"/>
+  
+  
+</launch>

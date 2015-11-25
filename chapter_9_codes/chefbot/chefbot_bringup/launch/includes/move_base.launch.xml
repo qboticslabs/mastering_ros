@@ -1,0 +1,18 @@
+
+<launch>
+
+  <arg name="odom_topic" default="odom" /> 
+
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find chefbot_bringup)/param/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find chefbot_bringup)/param/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find chefbot_bringup)/param/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find chefbot_bringup)/param/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find chefbot_bringup)/param/base_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find chefbot_bringup)/param/dwa_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find chefbot_bringup)/param/move_base_params.yaml" command="load" />
+
+    <remap from="cmd_vel" to="/cmd_vel_mux/input/navi"/>
+    <remap from="odom" to="$(arg odom_topic)"/>
+  </node>
+</launch>

@@ -1,0 +1,7 @@
+<library path="lib/libmy_controller_lib">
+  <class name="my_controller_pkg/MyControllerPlugin" 
+         type="my_controller_ns::MyControllerClass"           
+         base_class_type="pr2_controller_interface::Controller" />
+</library>
+
+

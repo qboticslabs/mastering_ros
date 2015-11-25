@@ -1,0 +1,8 @@
+<launch>
+  <!-- turtlebot_teleop_key already has its own built in velocity smoother -->
+  <node pkg="chefbot_bringup" type="chefbot_teleop_key" name="chefbot_teleop_keyboard"  output="screen">
+
+<!--    <remap from="arlobot_teleop_keyboard/cmd_vel" to="diffbot_controller/cmd_vel"/> -->
+    <remap from="chefbot_teleop_keyboard/cmd_vel" to="cmd_vel_mux/input/teleop"/> 
+  </node>
+</launch>

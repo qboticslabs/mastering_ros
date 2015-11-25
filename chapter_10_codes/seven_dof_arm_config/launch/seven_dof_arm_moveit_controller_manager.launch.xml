@@ -1,0 +1,12 @@
+<launch>
+	<!-- Set the param that trajectory_execution_manager needs to find the controller plugin -->
+	<arg name="moveit_controller_manager" default="moveit_simple_controller_manager/MoveItSimpleControllerManager" />
+	<param name="moveit_controller_manager" value="$(arg moveit_controller_manager)"/>
+
+	<!-- load controller_list -->
+	<arg name="use_controller_manager" default="true" />
+	<param name="use_controller_manager" value="$(arg use_controller_manager)" />
+
+	<!-- Load joint controller configurations from YAML file to parameter server -->
+	<rosparam file="$(find seven_dof_arm_config)/config/controllers.yaml"/>
+</launch>

@@ -1,0 +1,14 @@
+controller_list:
+  - name: fake_arm_controller
+    joints:
+      - shoulder_pan_joint
+      - shoulder_pitch_joint
+      - elbow_roll_joint
+      - elbow_pitch_joint
+      - wrist_roll_joint
+      - wrist_pitch_joint
+      - gripper_roll_joint
+  - name: fake_gripper_controller
+    joints:
+      - finger_joint1
+      - finger_joint2

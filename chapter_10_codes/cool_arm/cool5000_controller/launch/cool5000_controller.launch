@@ -1,0 +1,54 @@
+<!-- -*- mode: XML -*- -->
+
+<launch>
+
+    <!-- Start the Dynamixel motor manager to control all cool5000 servos -->
+   <node name="dynamixel_manager" pkg="dynamixel_controllers" type="controller_manager.py" required="true" output="screen">
+        <rosparam>
+            namespace: dxl_manager
+            serial_ports:
+                dynamixel_port:
+                    port_name: "/dev/ttyUSB0"
+                    baud_rate: 1000000
+                    min_motor_id: 0
+                    max_motor_id: 6
+                    update_rate: 20
+        </rosparam>
+    </node>
+    
+      <!-- Load joint controller configuration from YAML file to parameter server -->
+  <rosparam file="$(find cool5000_controller)/config/cool5000.yaml" command="load"/>
+
+    <!-- Start all SmartArm joint controllers -->
+    <node name="controller_spawner" pkg="dynamixel_controllers" type="controller_spawner.py"
+          args="--manager=dxl_manager
+                --port dynamixel_port
+                joint1_controller
+                joint2_controller			
+				joint3_controller
+				joint4_controller
+				joint5_controller
+				joint6_controller
+				joint7_controller"
+		   output="screen"/>
+        
+   <!-- Start the cool5000 arm trajectory controller -->
+	<rosparam file="$(find cool5000_controller)/config/cool5000_trajectory_controller.yaml" command="load"/>
+    <node name="controller_spawner_meta" pkg="dynamixel_controllers" type="controller_spawner.py" 
+    args="--manager=dxl_manager
+          --type=meta 
+          cool5000_trajectory_controller 
+          joint1_controller 
+          joint2_controller 
+          joint3_controller 
+          joint4_controller 
+          joint5_controller 
+          joint6_controller 
+          joint7_controller"
+          output="screen"/>
+  
+  <!-- Publish combined joint info -->
+  <include file="$(find cool5000_controller)/launch/joint_state_aggregator.launch" />
+  
+  </launch>
+

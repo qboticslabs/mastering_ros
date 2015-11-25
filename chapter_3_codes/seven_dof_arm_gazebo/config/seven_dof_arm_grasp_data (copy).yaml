@@ -1,0 +1,21 @@
+base_link: 'base_link'
+
+gripper:
+  end_effector_name: 'gripper'
+
+  # Default grasp params
+  joints: ['finger_joint1', 'finger_joint2']
+
+  pregrasp_posture: [0.0, 0.0]
+  pregrasp_time_from_start: 4.0
+
+  grasp_posture: [1.0, 1.0]
+  grasp_time_from_start: 4.0
+
+  postplace_time_from_start: 4.0
+
+  # Desired pose from end effector to grasp [x, y, z] + [R, P, Y]
+  grasp_pose_to_eef: [0.0, 0.0, 0.0]
+  grasp_pose_to_eef_rotation: [0.0, 0.0, 0.0]
+
+  end_effector_parent_link: 'gripper_roll_link'

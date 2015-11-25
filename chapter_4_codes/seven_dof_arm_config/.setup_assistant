@@ -1,0 +1,8 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: mastering_ros_robot_description_pkg
+    relative_path: urdf/seven_dof_arm.urdf
+  SRDF:
+    relative_path: config/seven_dof_arm.srdf
+  CONFIG:
+    generated_timestamp: 1442317172

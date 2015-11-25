@@ -1,0 +1,4 @@
+port: /dev/ttyACM0
+#port: /dev/ttyUSB0
+baudRate: 115200
+

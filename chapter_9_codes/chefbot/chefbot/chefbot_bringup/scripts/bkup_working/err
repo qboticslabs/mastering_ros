@@ -1,0 +1,86 @@
+[INFO] [WallTime: 1419579912.152619] /twist_to_motors started
+[INFO] [WallTime: 1419579911.666583] /lpid_velocity started
+[INFO] [WallTime: 1419579912.081762] /rpid_velocity started
+[INFO] [WallTime: 1419579912.984866] -I- /diff_tf started
+... logging to /home/lentin/.ros/log/1d3bc780-8cd3-11e4-ba0e-9439e54d7dda/roslaunch-lentin-Aspire-4755-15144.log
+Checking log directory for disk usage. This may take awhile.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;/home/lentin/catkin_ws/src/launchpad_robot_bringup/launch/robot_standalone.launch
+[1mstarted roslaunch server http://lentin-Aspire-4755:57837/[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /launchpad_node/batteryStateParams/voltageLowLowlimit: 11.7
+ * /launchpad_node/batteryStateParams/voltageLowlimit: 12.0
+ * /launchpad_node/baudRate: 115200
+ * /launchpad_node/driveGeometry/countsPerRevolution: 4200
+ * /launchpad_node/driveGeometry/trackWidth: 0.01
+ * /launchpad_node/driveGeometry/wheelDiameter: 0.09
+ * /launchpad_node/port: /dev/ttyACM0
+ * /launchpad_node/speedController/commandTimeout: 1.0
+ * /launchpad_node/speedController/turnIParam: 0
+ * /launchpad_node/speedController/turnPParam: 0
+ * /launchpad_node/speedController/velocityIParam: 0
+ * /launchpad_node/speedController/velocityPParam: 0
+ * /lpid_velocity/Kd: 10
+ * /lpid_velocity/Ki: 100
+ * /lpid_velocity/Kp: 500
+ * /lpid_velocity/out_max: 1023
+ * /lpid_velocity/out_min: -1023
+ * /lpid_velocity/rate: 30
+ * /lpid_velocity/rolling_pts: 5
+ * /lpid_velocity/timeout_ticks: 4
+ * /robot/name: turtlebot
+ * /robot/type: turtlebot
+ * /robot_description: <?xml version="1....
+ * /robot_state_publisher/publish_frequency: 5.0
+ * /rosdistro: indigo
+ * /rosversion: 1.11.8
+ * /rpid_velocity/Kd: 10
+ * /rpid_velocity/Ki: 100
+ * /rpid_velocity/Kp: 500
+ * /rpid_velocity/base_width: 0.3
+ * /rpid_velocity/out_max: 1023
+ * /rpid_velocity/out_min: -1023
+ * /rpid_velocity/rate: 30
+ * /rpid_velocity/rolling_pts: 5
+ * /rpid_velocity/timeout_ticks: 4
+ * /ticks_meter: 14865
+ * /use_sim_time: False
+
+NODES
+  /
+    diff_tf (launchpad_robot_bringup/diff_tf.py)
+    launchpad_node (launchpad_robot_bringup/launchpad_node.py)
+    lpid_velocity (launchpad_robot_bringup/pid_velocity.py)
+    robot_state_publisher (robot_state_publisher/robot_state_publisher)
+    rpid_velocity (launchpad_robot_bringup/pid_velocity.py)
+    twist_to_motors (launchpad_robot_bringup/twist_to_motors.py)
+
+auto-starting new master
+[1mprocess[master]: started with pid [15159][0m
+[1mROS_MASTER_URI=http://localhost:11311[0m
+]2;/home/lentin/catkin_ws/src/launchpad_robot_bringup/launch/robot_standalone.launch http://localhost:11311
+[1msetting /run_id to 1d3bc780-8cd3-11e4-ba0e-9439e54d7dda[0m
+[1mprocess[rosout-1]: started with pid [15172][0m
+started core service [/rosout]
+[1mprocess[robot_state_publisher-2]: started with pid [15190][0m
+[1mprocess[launchpad_node-3]: started with pid [15216][0m
+[1mprocess[lpid_velocity-4]: started with pid [15219][0m
+[1mprocess[rpid_velocity-5]: started with pid [15258][0m
+[1mprocess[twist_to_motors-6]: started with pid [15282][0m
+[1mprocess[diff_tf-7]: started with pid [15332][0m
+[diff_tf-7] killing on exit
+[rpid_velocity-5] killing on exit
+[twist_to_motors-6] killing on exit
+[lpid_velocity-4] killing on exit
+[launchpad_node-3] killing on exit
+[robot_state_publisher-2] killing on exit
+[rosout-1] killing on exit
+[master] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+[1mdone[0m

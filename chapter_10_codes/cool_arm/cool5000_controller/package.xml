@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<package>
+  <name>cool5000_controller</name>
+  <version>0.0.0</version>
+  <description>The cool5000_controller package</description>
+
+  <!-- One maintainer tag required, multiple allowed, one person per tag --> 
+  <!-- Example:  -->
+  <maintainer email="ravi@asimovrobotics.com">Ravi</maintainer>
+
+
+  <!-- One license tag required, multiple allowed, one license per tag -->
+  <!-- Commonly used license strings: -->
+  <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
+  <license>BSD</license>
+
+  <author email="ravi@asimovrobotics.com">Ravi</author>
+
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>actionlib</build_depend>
+  <build_depend>actionlib_msgs</build_depend>
+  <build_depend>dynamixel_controllers</build_depend>
+  <build_depend>dynamixel_msgs</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>wxpython</build_depend>
+  <build_depend>tf</build_depend>
+
+  <run_depend>roscpp</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>actionlib</run_depend>
+  <run_depend>actionlib_msgs</run_depend>
+  <run_depend>dynamixel_controllers</run_depend>
+  <run_depend>dynamixel_msgs</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>wxpython</run_depend>
+  <run_depend>tf</run_depend>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+</package>

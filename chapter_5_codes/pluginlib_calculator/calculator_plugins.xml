@@ -1,0 +1,18 @@
+<library path="lib/libpluginlib_calculator">
+  <class name="pluginlib_calculator/Add" type="calculator_plugins::Add" base_class_type="calculator_base::calc_functions">
+    <description>This is a add plugin.</description>
+  </class>
+
+  <class name="pluginlib_calculator/Sub" type="calculator_plugins::Sub" base_class_type="calculator_base::calc_functions">
+    <description>This is a sub plugin.</description>
+  </class>
+
+  <class name="pluginlib_calculator/Mul" type="calculator_plugins::Mul" base_class_type="calculator_base::calc_functions">
+    <description>This is a mul plugin.</description>
+  </class>
+
+  <class name="pluginlib_calculator/Div" type="calculator_plugins::Div" base_class_type="calculator_base::calc_functions">
+    <description>This is a div plugin.</description>
+  </class>
+
+</library>

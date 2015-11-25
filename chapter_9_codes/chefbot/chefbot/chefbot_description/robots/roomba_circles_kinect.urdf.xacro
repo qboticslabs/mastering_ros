@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+    - Base      : create
+    - Stacks    : circles
+    - 3d Sensor : kinect
+-->    
+<robot name="turtlebot" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find chefbot_description)/urdf/chefbot_library.urdf.xacro" />
+
+  <create/>
+  <stack_circles parent="base_link"/>
+  <sensor_kinect  parent="base_link"/>
+</robot>

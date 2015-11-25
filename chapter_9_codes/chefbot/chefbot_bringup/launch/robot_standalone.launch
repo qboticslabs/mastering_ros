@@ -1,0 +1,74 @@
+<launch>
+
+  <!-- change this next line to include the launch file for your robot's hardware drivers: -->
+
+ <arg name="simulation" default="$(optenv TURTLEBOT_SIMULATION false)"/>
+ <param name="/use_sim_time" value="$(arg simulation)"/>
+
+  <arg name="urdf_file" default="$(find xacro)/xacro.py '$(find chefbot_description)/urdf/chefbot_base.xacro'" /> 
+<!--  <arg name="urdf_file" default="$(find xacro)/xacro.py '$(find arlobot_description)/urdf/common.urdf.xacro'" /> -->
+
+
+  <param name="robot_description" command="$(arg urdf_file)" />
+
+  <!-- important generally, but specifically utilised by the current app manager -->
+  <param name="robot/name" value="$(optenv ROBOT turtlebot)"/>
+  <param name="robot/type" value="turtlebot"/>
+
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="5.0" />
+  </node>
+
+
+  <rosparam param="base_width">0.3</rosparam>
+  <rosparam param="ticks_meter">14865</rosparam>
+
+
+  <node name="launchpad_node" pkg="chefbot_bringup" type="launchpad_node.py">
+    <rosparam file="$(find chefbot_bringup)/param/board_config.yaml" command="load" />
+  </node>
+
+
+
+  <node name="lpid_velocity" pkg="chefbot_bringup" type="pid_velocity.py" output="screen">
+      <remap from="wheel" to="lwheel"/>
+      <remap from="motor_cmd" to="left_wheel_speed"/>
+      <remap from="wheel_vtarget" to="lwheel_vtarget"/>
+      <remap from="wheel_vel" to="lwheel_vel"/>
+    
+      <rosparam param="Kp">400</rosparam>
+      <rosparam param="Ki">100</rosparam>
+      <rosparam param="Kd">0</rosparam>
+      <rosparam param="out_min">-1023</rosparam>
+      <rosparam param="out_max">1023</rosparam>
+      <rosparam param="rate">30</rosparam>
+      <rosparam param="timeout_ticks">4</rosparam>
+      <rosparam param="rolling_pts">5</rosparam>
+
+  </node>
+
+  <node name="rpid_velocity" pkg="chefbot_bringup" type="pid_velocity.py" output="screen">
+      <remap from="wheel" to="rwheel"/>
+      <remap from="motor_cmd" to="right_wheel_speed"/>
+      <remap from="wheel_vtarget" to="rwheel_vtarget"/>
+      <remap from="wheel_vel" to="rwheel_vel"/>
+      <rosparam param="Kp">400</rosparam>
+      <rosparam param="Ki">100</rosparam>
+      <rosparam param="Kd">0</rosparam>
+      <rosparam param="out_min">-1023</rosparam>
+      <rosparam param="out_max">1023</rosparam>
+      <rosparam param="rate">30</rosparam>
+      <rosparam param="timeout_ticks">4</rosparam>
+      <rosparam param="rolling_pts">5</rosparam>
+
+
+
+ </node>
+
+
+  <node pkg="chefbot_bringup" type="twist_to_motors.py" name="twist_to_motors" output="screen"/>
+  <node pkg="chefbot_bringup" type="diff_tf.py" name="diff_tf" output="screen"/> 
+
+
+</launch>

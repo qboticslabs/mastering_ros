@@ -1,0 +1,8 @@
+<library path="lib/libeffort_controllers">
+
+  <class name="controller_ns/PositionController" type="controller_ns::PositionController" base_class_type="controller_interface::ControllerBase">
+    <description>
+      The JointPositionController tracks position commands. It expects a EffortJointInterface type of hardware interface.
+    </description>
+  </class>
+</library>

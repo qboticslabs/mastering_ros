@@ -1,0 +1,897 @@
+<robot
+  name="cool5000_description">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.00740268122220379 -7.79780809469915E-05 0.0239950122899852"
+        rpy="0 0 0" />
+      <mass
+        value="0.846647435563259" />
+      <inertia
+        ixx="0.00124634937489685"
+        ixy="4.29765018336945E-06"
+        ixz="-7.57570937123292E-05"
+        iyy="0.00148314322574494"
+        iyz="4.28849208327343E-07"
+        izz="0.00230841697024344" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cool5000_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.294117647058824 0.294117647058824 0.294117647058824 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cool5000_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="link_1">
+    <inertial>
+      <origin
+        xyz="-3.33066907387547E-16 0.0496052364958285 2.63677968348475E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.719043302672211" />
+      <inertia
+        ixx="0.00117471651046128"
+        ixy="-3.98078979926578E-19"
+        ixz="3.97515123536733E-09"
+        iyy="0.000836656671019206"
+        iyz="4.41701887843589E-20"
+        izz="0.00104420714307512" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cool5000_description/meshes/link_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.294117647058824 0.294117647058824 0.294117647058824 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cool5000_description/meshes/link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_1"
+    type="revolute">
+    <origin
+      xyz="0 0 0.05"
+      rpy="1.5708 0 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_1" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-1.8316"
+      upper="1.8316"
+      effort="10"
+      velocity="10" />
+    <dynamics
+      damping="1"
+      friction="0" />
+  </joint>
+  <link
+    name="link_2">
+    <inertial>
+      <origin
+        xyz="-5.25883753210721E-10 0.077891592695098 -0.00173116895459743"
+        rpy="0 0 0" />
+      <mass
+        value="1.61922967829458" />
+      <inertia
+        ixx="0.00952141896520806"
+        ixy="-7.55902279201451E-10"
+        ixz="2.28241205387629E-09"
+        iyy="0.00227197876332403"
+        iyz="-5.85856696332501E-05"
+        izz="0.00962485940202755" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cool5000_description/meshes/link_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.294117647058824 0.294117647058824 0.294117647058824 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cool5000_description/meshes/link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_2"
+    type="revolute">
+    <origin
+      xyz="0 0.11532 0"
+      rpy="3.1008 0 3.1416" />
+    <parent
+      link="link_1" />
+    <child
+      link="link_2" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-1.8316"
+      upper="1.8316"
+      effort="10"
+      velocity="10" />
+    <dynamics
+      damping="1"
+      friction="0" />
+  </joint>
+  <link
+    name="link_3">
+    <inertial>
+      <origin
+        xyz="1.04524167099385E-11 0.0480347134192946 2.39744057939362E-10"
+        rpy="0 0 0" />
+      <mass
+        value="0.339009794116155" />
+      <inertia
+        ixx="0.000380771094524782"
+        ixy="6.85673898976251E-14"
+        ixz="-1.31981301939392E-10"
+        iyy="0.000210169342004298"
+        iyz="2.70532654895447E-12"
+        izz="0.000361038572188416" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cool5000_description/meshes/link_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.294117647058824 0.294117647058824 0.294117647058824 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cool5000_description/meshes/link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_3"
+    type="revolute">
+    <origin
+      xyz="0 0.18054 0"
+      rpy="-3.1416 0 3.1416" />
+    <parent
+      link="link_2" />
+    <child
+      link="link_3" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-1.8316"
+      upper="1.8316"
+      effort="10"
+      velocity="10" />
+    <dynamics
+      damping="1"
+      friction="0" />
+  </joint>
+  <link
+    name="link_4">
+    <inertial>
+      <origin
+        xyz="-0.00254018867701789 0.0583678134800137 3.2910200800651E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.814690604659903" />
+      <inertia
+        ixx="0.00228163337541819"
+        ixy="-5.52494767287994E-05"
+        ixz="-3.81161624829084E-10"
+        iyy="0.000656317375501096"
+        iyz="1.15086631368123E-09"
+        izz="0.00234155902857576" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cool5000_description/meshes/link_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.294117647058824 0.294117647058824 0.294117647058824 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cool5000_description/meshes/link_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_4"
+    type="revolute">
+    <origin
+      xyz="0 0.11069 0"
+      rpy="-0.024135 0 0" />
+    <parent
+      link="link_3" />
+    <child
+      link="link_4" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1.8316"
+      upper="1.8316"
+      effort="10"
+      velocity="10" />
+    <dynamics
+      damping="1"
+      friction="0" />
+  </joint>
+  <link
+    name="link_5">
+    <inertial>
+      <origin
+        xyz="3.1919E-16 0.034924 -2.498E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.25552" />
+      <inertia
+        ixx="0.00020989"
+        ixy="3.7717E-20"
+        ixz="-9.452E-11"
+        iyy="0.00015061"
+        iyz="-8.0256E-20"
+        izz="0.00019016" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cool5000_description/meshes/link_5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.29412 0.29412 0.29412 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cool5000_description/meshes/link_5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_5"
+    type="revolute">
+    <origin
+      xyz="0 0.14559 0"
+      rpy="3.1416 0 3.1416" />
+    <parent
+      link="link_4" />
+    <child
+      link="link_5" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-1.8316"
+      upper="1.8316"
+      effort="10"
+      velocity="10" />
+    <dynamics
+      damping="1"
+      friction="0" />
+  </joint>
+  <link
+    name="link_6">
+    <inertial>
+      <origin
+        xyz="-0.00254019758664627 0.0583678148387304 2.93085136715554E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.814690577182791" />
+      <inertia
+        ixx="0.00228163335023692"
+        ixy="-5.52497316458464E-05"
+        ixz="-5.4774862630866E-10"
+        iyy="0.000656317399637272"
+        iyz="1.01624769822759E-09"
+        izz="0.00234155907195519" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cool5000_description/meshes/link_6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.294117647058824 0.294117647058824 0.294117647058824 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cool5000_description/meshes/link_6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_6"
+    type="revolute">
+    <origin
+      xyz="0 0.086106 0"
+      rpy="3.1249 0 3.1416" />
+    <parent
+      link="link_5" />
+    <child
+      link="link_6" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1.8316"
+      upper="1.8316"
+      effort="10"
+      velocity="10" />
+    <dynamics
+      damping="1"
+      friction="0" />
+  </joint>
+  <link
+    name="link_7">
+    <inertial>
+      <origin
+        xyz="-0.0157359919124219 0.0267735850795847 -0.00585726369761212"
+        rpy="0 0 0" />
+      <mass
+        value="0.0663146280462201" />
+      <inertia
+        ixx="3.51823768198827E-05"
+        ixy="1.80403658071225E-06"
+        ixz="5.10242578839165E-06"
+        iyy="4.53712886350439E-05"
+        iyz="-5.80343198434449E-07"
+        izz="4.52104045249864E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cool5000_description/meshes/link_7.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.0980392156862745 0.0980392156862745 0.0980392156862745 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cool5000_description/meshes/link_7.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_7"
+    type="revolute">
+    <origin
+      xyz="0 0.14391 0"
+      rpy="3.1416 0 3.1416" />
+    <parent
+      link="link_6" />
+    <child
+      link="link_7" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-1.8316"
+      upper="1.8316"
+      effort="10"
+      velocity="10" />
+    <dynamics
+      damping="1"
+      friction="0" />
+  </joint>
+  <link
+    name="thumb_base_link">
+    <inertial>
+      <origin
+        xyz="0.0132042378500769 0.0234969914482088 -0.0243371472747438"
+        rpy="0 0 0" />
+      <mass
+        value="0.0250536582156801" />
+      <inertia
+        ixx="1.24125301031144E-05"
+        ixy="-2.83031580289554E-07"
+        ixz="-1.90103572081108E-06"
+        iyy="1.01010909304267E-05"
+        iyz="2.74232716775453E-07"
+        izz="1.13658370606256E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cool5000_description/meshes/thumb_base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.0980392156862745 0.0980392156862745 0.0980392156862745 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cool5000_description/meshes/thumb_base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="thumb_base_joint"
+    type="revolute">
+    <origin
+      xyz="0.017 0.00766 0.015"
+      rpy="3.1416 0 3.1416" />
+    <parent
+      link="link_7" />
+    <child
+      link="thumb_base_link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-3.14"
+      upper="0"
+      effort="10"
+      velocity="10" />
+    <dynamics
+      damping="1"
+      friction="0" />
+  </joint>
+  <link
+    name="thumb_link">
+    <inertial>
+      <origin
+        xyz="0.000257542711170844 0.0245473507529242 -0.01585564056727"
+        rpy="0 0 0" />
+      <mass
+        value="0.0142460359671903" />
+      <inertia
+        ixx="5.45928119105848E-06"
+        ixy="5.35921679734639E-08"
+        ixz="1.06618719103158E-09"
+        iyy="1.94494581177676E-06"
+        iyz="4.27982772569645E-07"
+        izz="4.60377760842711E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cool5000_description/meshes/thumb_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cool5000_description/meshes/thumb_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="thumb_joint"
+    type="revolute">
+    <origin
+      xyz="0.0024171 0.053 -0.0306"
+      rpy="-1.5708 -0.061634 1.5708" />
+    <parent
+      link="thumb_base_link" />
+    <child
+      link="thumb_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="1.57"
+      effort="10"
+      velocity="10" />
+    <dynamics
+      damping="1"
+      friction="0" />
+  </joint>
+  <link
+    name="thumb_tip_link">
+    <inertial>
+      <origin
+        xyz="0.000430423208405806 0.0145677663158648 -0.0146076096310272"
+        rpy="0 0 0" />
+      <mass
+        value="0.0136837265694944" />
+      <inertia
+        ixx="2.52125952097266E-06"
+        ixy="2.20172830468166E-07"
+        ixz="-1.28605855894363E-12"
+        iyy="1.06485994855152E-06"
+        iyz="-3.20679728993764E-12"
+        izz="2.14936389442943E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cool5000_description/meshes/thumb_tip_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cool5000_description/meshes/thumb_tip_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="thumb_tip_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.05 -7.5235E-05"
+      rpy="0 0 -0.55821" />
+    <parent
+      link="thumb_link" />
+    <child
+      link="thumb_tip_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0.6"
+      effort="10"
+      velocity="10" />
+    <dynamics
+      damping="1"
+      friction="0" />
+  </joint>
+  <link
+    name="index_link">
+    <inertial>
+      <origin
+        xyz="0.000257542884015027 0.0245473508746751 -0.00127277532465074"
+        rpy="0 0 0" />
+      <mass
+        value="0.0142460362818288" />
+      <inertia
+        ixx="5.459281242954E-06"
+        ixy="5.35921832983915E-08"
+        ixz="1.06621210847428E-09"
+        iyy="1.94494586812968E-06"
+        iyz="4.27982777835809E-07"
+        izz="4.60377765128542E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cool5000_description/meshes/index_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cool5000_description/meshes/index_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="index_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.06066 -0.015"
+      rpy="-1.5708 -0.09388 1.5708" />
+    <parent
+      link="link_7" />
+    <child
+      link="index_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="0"
+      effort="10"
+      velocity="10" />
+    <dynamics
+      damping="1"
+      friction="0" />
+  </joint>
+  <link
+    name="index_tip_link">
+    <inertial>
+      <origin
+        xyz="0.000430423191002949 0.0145677662387191 -9.99796106573442E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.0136837262049962" />
+      <inertia
+        ixx="2.52125939109024E-06"
+        ixy="2.20172809709828E-07"
+        ixz="-1.28455746158007E-12"
+        iyy="1.06485996747754E-06"
+        iyz="-3.2099935263311E-12"
+        izz="2.14936375284952E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cool5000_description/meshes/index_tip_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cool5000_description/meshes/index_tip_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="index_tip_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.05 0"
+      rpy="3.3626E-15 2.8721E-15 -0.5438" />
+    <parent
+      link="index_link" />
+    <child
+      link="index_tip_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.6"
+      upper="0"
+      effort="10"
+      velocity="10" />
+    <dynamics
+      damping="1"
+      friction="0" />
+  </joint>
+  <link
+    name="middle_link">
+    <inertial>
+      <origin
+        xyz="0.000257541500020553 0.0245473518142074 0.0134662437638456"
+        rpy="0 0 0" />
+      <mass
+        value="0.0142460370761395" />
+      <inertia
+        ixx="5.45928143724118E-06"
+        ixy="5.35919821875036E-08"
+        ixz="1.06633074508268E-09"
+        iyy="1.94494598435035E-06"
+        iyz="4.27982678396304E-07"
+        izz="4.60377789616687E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cool5000_description/meshes/middle_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cool5000_description/meshes/middle_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="middle_joint"
+    type="revolute">
+    <origin
+      xyz="-0.019261 0.06066 -0.015"
+      rpy="-1.5708 -0.07681 1.5708" />
+    <parent
+      link="link_7" />
+    <child
+      link="middle_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="0"
+      effort="10"
+      velocity="10" />
+    <dynamics
+      damping="1"
+      friction="0" />
+  </joint>
+  <link
+    name="middle_tip_link">
+    <inertial>
+      <origin
+        xyz="0.000430423168644389 0.0145677660227165 0.0140020214628581"
+        rpy="0 0 0" />
+      <mass
+        value="0.0136837253150211" />
+      <inertia
+        ixx="2.5212590452186E-06"
+        ixy="2.20172754188985E-07"
+        ixz="-1.2803643025991E-12"
+        iyy="1.0648600231441E-06"
+        iyz="-3.21879103332143E-12"
+        izz="2.14936337367978E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cool5000_description/meshes/middle_tip_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cool5000_description/meshes/middle_tip_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="middle_tip_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.05 0.00063702"
+      rpy="5.443E-15 4.7618E-15 -0.60878" />
+    <parent
+      link="middle_link" />
+    <child
+      link="middle_tip_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.6"
+      upper="0"
+      effort="10"
+      velocity="10" />
+    <dynamics
+      damping="1"
+      friction="0" />
+  </joint>
+</robot>

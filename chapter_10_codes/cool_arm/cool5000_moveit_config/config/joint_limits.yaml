@@ -1,0 +1,74 @@
+# joint_limits.yaml allows the dynamics properties specified in the URDF to be overwritten or augmented as needed
+# Specific joint properties can be changed with the keys [max_position, min_position, max_velocity, max_acceleration]
+# Joint limits can be turned off with [has_velocity_limits, has_acceleration_limits]
+joint_limits:
+  index_joint:
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: false
+    max_acceleration: 0
+  index_tip_joint:
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: false
+    max_acceleration: 0
+  joint_1:
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: false
+    max_acceleration: 0
+  joint_2:
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: false
+    max_acceleration: 0
+  joint_3:
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: false
+    max_acceleration: 0
+  joint_4:
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: false
+    max_acceleration: 0
+  joint_5:
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: false
+    max_acceleration: 0
+  joint_6:
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: false
+    max_acceleration: 0
+  joint_7:
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: false
+    max_acceleration: 0
+  middle_joint:
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: false
+    max_acceleration: 0
+  middle_tip_joint:
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: false
+    max_acceleration: 0
+  thumb_base_joint:
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: false
+    max_acceleration: 0
+  thumb_joint:
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: false
+    max_acceleration: 0
+  thumb_tip_joint:
+    has_velocity_limits: true
+    max_velocity: 10
+    has_acceleration_limits: false
+    max_acceleration: 0

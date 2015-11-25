@@ -1,0 +1,8 @@
+port: /dev/ttyUSB1
+baudRate: 115200
+# trackwidth [m], distancePerCount [m]
+# http://learn.parallax.com/activitybot/calculating-angles-rotation
+# Distance Per Tick for Arlo: http://forums.parallax.com/showthread.php/154274-The-quot-Artist-quot-robot?p=1271544&viewfull=1#post1271544
+# Track Width for Arlo is from measurement and then testing
+#driveGeometry: {trackWidth: 0.403, distancePerCount: 0.00676}
+driveGeometry: {trackWidth: 0.3, distancePerCount: 0.00676}

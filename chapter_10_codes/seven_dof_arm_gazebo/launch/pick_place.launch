@@ -1,0 +1,22 @@
+<launch>
+
+  <!-- Debug -->  
+  <arg name="debug" default="false" />
+  <arg unless="$(arg debug)" name="launch_prefix" value="" />
+  <arg     if="$(arg debug)" name="launch_prefix" value="gdb --ex run --args" />
+
+  <!-- Verbose mode -->
+  <arg name="verbose" default="false" />
+  <arg unless="$(arg verbose)" name="command_args" value="" />
+  <arg     if="$(arg verbose)" name="command_args" value="--verbose" />
+
+  <!-- Start the block grasping -->
+  <node name="clam_pick_place" launch-prefix="$(arg launch_prefix)" pkg="clam_pick_place"
+	type="block_pick_place" output="screen" args="$(arg command_args)">
+    <param name="ee_group_name" value="gripper_group"/>
+    <param name="planning_group_name" value="arm"/>
+    <rosparam command="load" file="$(find seven_dof_arm_config)/config/kinematics.yaml"/>
+    <rosparam command="load" file="$(find seven_dof_arm_gazebo)/config/seven_dof_arm_grasp_data.yaml"/>
+  </node>   
+
+</launch>

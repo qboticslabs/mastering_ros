@@ -1,0 +1,17 @@
+cool5000_trajectory_controller:
+   controller:
+       package: dynamixel_controllers
+       module: joint_trajectory_action_controller
+       type: JointTrajectoryActionController
+   joint_trajectory_action_node:
+       min_velocity: 0.0
+       constraints:
+           goal_time: 0.01
+        
+
+
+
+
+
+
+

@@ -1,0 +1,1 @@
+rosrun moveit_ikfast create_ikfast_moveit_plugin.py abb_irb6640 manipulator abb_irb6640_moveit_plugins /home/lentin/ros_industrial_ws/src/abb_irb6640_moveit_plugins/src/abb_irb6640_manipulator_ikfast_solver.cpp

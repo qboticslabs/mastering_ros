@@ -1,0 +1,100 @@
+joint1_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: joint1
+    joint_speed: 0.1
+    motor:
+        id: 0
+        init: 2048
+        min: 320
+        max: 3823
+
+
+joint2_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: joint2
+    joint_speed: 0.1
+    motor:
+        id: 1
+        init: 2048
+        min: 957
+        max: 3106
+
+
+joint3_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: joint3
+    joint_speed: 0.1
+    motor:
+        id: 2
+        init: 2048
+        min: 314
+        max: 3836
+
+
+joint4_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: joint4
+    joint_speed: 0.1
+    motor:
+        id: 3
+        init: 2048
+        min: 750
+        max: 3344
+
+
+joint5_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: joint5
+    joint_speed: 0.1
+    motor:
+        id: 4
+        init: 2048
+        min: 780
+        max: 3270
+
+
+joint6_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: joint6
+    joint_speed: 0.1
+    motor:
+        id: 5
+        init: 2048
+        min: 780
+        max: 3270
+
+joint7_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: joint7
+    joint_speed: 0.1
+    motor:
+        id: 6
+        init: 2048
+        min: 356
+        max: 3749
+
+
+
+
+

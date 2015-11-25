@@ -1,0 +1,31 @@
+seven_dof_arm:
+  seven_dof_arm_joint_controller:
+    type: "position_controllers/JointTrajectoryController"
+    joints:
+      - shoulder_pan_joint
+      - shoulder_pitch_joint
+      - elbow_roll_joint
+      - elbow_pitch_joint
+      - wrist_roll_joint
+      - wrist_pitch_joint
+      - gripper_roll_joint
+
+    gains:
+      shoulder_pan_joint:   {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      shoulder_pitch_joint: {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      elbow_roll_joint:  {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      elbow_pitch_joint:       {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      wrist_roll_joint:    {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      wrist_pitch_joint:      {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      gripper_roll_joint:    {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+
+
+  gripper_controller:
+    type: "position_controllers/JointTrajectoryController"
+    joints:
+      - finger_joint1
+      - finger_joint2
+    gains:
+      finger_joint1:  {p: 50.0, d: 1.0, i: 0.01, i_clamp: 1.0}
+      finger_joint2:  {p: 50.0, d: 1.0, i: 0.01, i_clamp: 1.0}
+

@@ -1,0 +1,3 @@
+<launch>
+  <include file="$(find chefbot_bringup)/launch/includes/gmapping.launch.xml"/>
+</launch>

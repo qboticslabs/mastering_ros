@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <model name="table">
+    <static>true</static>
+    <link name="link">
+
+      <collision name="surface">
+        <pose>0 0 0.15 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.22 1 0.2</size>
+          </box>
+        </geometry>
+
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.1</mu>
+              <mu2>0.1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+
+      <visual name="visual1">
+        <pose>0 0 0.15 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.22 1 0.2</size>
+          </box>
+        </geometry>
+
+<!--        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Wood</name>
+          </script>
+        </material> -->
+      </visual>
+
+      </link>
+
+  </model>
+</sdf>
