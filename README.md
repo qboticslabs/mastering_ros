@@ -6,7 +6,7 @@
 
 ### Author
 
-* [Lentin Joseph](http://https://in.linkedin.com/in/lentinjoseph)
+* [Lentin Joseph](https://in.linkedin.com/in/lentinjoseph)
 
 ### Installation
 The code is comaptible with ROS Jade and ROS Indigo. The detail installation instruction of each packages is mentioned on the book
