@@ -1,0 +1,24 @@
+base_link: 'base_link'
+
+# =====================================================
+gripper_group: # ee group name
+  end_effector_name: 'gripper_group' # ee group name
+
+  #actuated joints in end effector
+  joints : ['gripper_finger_joint']
+
+  #open position
+  pregrasp_posture : [-0.925023722222]
+  pregrasp_time_from_start : 4.0
+
+  #close position
+  grasp_posture : [1.0]
+  grasp_time_from_start : 4.0
+
+  #desired pose from end effector to grasp - [x,y,z]
+  grasp_pose_to_eef : [-0.14,0,0]
+
+  #desired pose from end effector to grasp - [r, p, y]
+  grasp_pose_to_eef_rotation : [0, 0, 0] # 1.5707 = PI/2
+
+  end_effector_parent_link : 'gripper_roll_link'

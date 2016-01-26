@@ -1,0 +1,10 @@
+#goal
+geometry_msgs/Pose pose
+float64 width
+moveit_simple_grasps/GraspGeneratorOptions[] options
+---
+#result
+moveit_msgs/Grasp[] grasps
+---
+#feedback
+moveit_msgs/Grasp[] grasps

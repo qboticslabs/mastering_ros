@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" 
+ 	xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+    	xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+    	xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+	name="pan_tilt">
+
+
+	<xacro:property name="base_link_length" value="0.01" />
+	<xacro:property name="base_link_radius" value="0.2" />
+
+	<xacro:property name="pan_link_length" value="0.4" />
+	<xacro:property name="pan_link_radius" value="0.04" />
+
+	<xacro:property name="tilt_link_length" value="0.4" />
+	<xacro:property name="tilt_link_radius" value="0.04" />
+
+
+	<xacro:macro name="inertial_matrix" params="mass">
+               <inertial>
+                       <mass value="${mass}" />
+                       <inertia ixx="0.5" ixy="0.0" ixz="0.0"
+                                iyy="0.5" iyz="0.0"
+                                izz="0.5" />
+               </inertial>
+	</xacro:macro>
+
+
+
+  <link name="base_link">
+
+    <visual>
+      <geometry>
+	<cylinder length="${base_link_length}" radius="${base_link_radius}"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="yellow">
+        <color rgba="1 1 0 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <geometry>
+	<cylinder length="${base_link_length+0.02}" radius="0.2"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+	<xacro:inertial_matrix mass="1"/>
+  </link>
+
+  <joint name="pan_joint" type="revolute">
+    <parent link="base_link"/>
+    <child link="pan_link"/>
+    <origin xyz="0 0 0.1"/>
+    <axis xyz="0 0 1" />
+    <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+    <dynamics damping="50" friction="1"/>
+  </joint>
+
+  <link name="pan_link">
+    <visual>
+      <geometry>
+	<cylinder length="${pan_link_length}" radius="${pan_link_radius}"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.09"/>
+      <material name="red">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+	<cylinder length="${pan_link_length}" radius="${pan_link_radius+0.02}"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.09"/>
+    </collision>
+	<xacro:inertial_matrix mass="1"/>
+  </link>
+
+  <joint name="tilt_joint" type="revolute">
+    <parent link="pan_link"/>
+    <child link="tilt_link"/>
+    <origin xyz="0 0 0.2"/>
+    <axis xyz="0 1 0" />
+    <limit effort="300" velocity="0.1" lower="-4.64" upper="-1.5"/>
+    <dynamics damping="50" friction="1"/>
+  </joint>
+
+  <link name="tilt_link">
+    <visual>
+      <geometry>
+	<cylinder length="${tilt_link_length}" radius="${tilt_link_radius}"/>
+      </geometry>
+      <origin rpy="0 1.5 0" xyz="0 0 0"/>
+      <material name="green">
+        <color rgba="1 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+	<cylinder length="${tilt_link_length}" radius="${tilt_link_radius+0.2}"/>
+      </geometry>
+      <origin rpy="0 1.5 0" xyz="0 0 0"/>
+    </collision>
+	<xacro:inertial_matrix mass="1"/>
+  </link>
+
+
+</robot>

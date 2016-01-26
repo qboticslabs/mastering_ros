@@ -1,0 +1,39 @@
+base_link: 'base_link'
+
+# =====================================================
+right_hand:
+  end_effector_name: 'right_hand'
+
+  #default grasp params
+  joints : ['hand_right_index_joint', 'hand_right_middle_joint', 'hand_right_thumb_joint']
+  pregrasp_posture : [0.0, 0.0, 2.0]
+  pregrasp_time_from_start : 4.0
+  grasp_posture : [4.5, 4.5, 2.0]
+  grasp_time_from_start : 4.0
+
+  #desired pose from end effector to grasp
+  grasp_pose_to_eef : [0.054, 0.0, 0.018]
+
+  #desired pose from end effector to grasp - [r, p, y]
+  grasp_pose_to_eef_rotation : [0, 1.5708, 0] # 1.5707 = PI/2
+
+  end_effector_parent_link: 'right_hand_grasping_frame'
+# =====================================================
+left_hand:
+  end_effector_name: 'left_hand'
+
+  #default grasp params
+  joints : ['hand_left_index_joint', 'hand_left_middle_joint', 'hand_left_thumb_joint']
+  pregrasp_posture : [0.0, 0.0, 2.0]
+  pregrasp_time_from_start : 4.0
+  grasp_posture : [4.5, 4.5, 2.0]
+  grasp_time_from_start : 4.0
+
+  #desired pose from end effector to grasp
+  grasp_pose_to_eef : [0.054, 0.0, 0.018]
+
+  #desired pose from end effector to grasp - [r, p, y]
+  grasp_pose_to_eef_rotation : [0, 1.5708, 0] # 1.5707 = PI/2
+
+  end_effector_parent_link: 'left_hand_grasping_frame'
+
