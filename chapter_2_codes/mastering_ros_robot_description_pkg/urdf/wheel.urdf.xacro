@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<robot name="wheel" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  
+  <!-- Wheels -->
+  <property name="wheel_radius" value="0.04" /> 
+  <property name="wheel_height" value="0.02" />
+  <property name="wheel_mass" value="2.5" /> <!-- in kg-->
+  
+  <property name="base_x_origin_to_wheel_origin" value="0.25" />
+  <property name="base_y_origin_to_wheel_origin" value="0.3" />
+  <property name="base_z_origin_to_wheel_origin" value="0.0" />
+  
+  <macro name="cylinder_inertia" params="m r h">
+    <inertia  ixx="${m*(3*r*r+h*h)/12}" ixy = "0" ixz = "0"
+              iyy="${m*(3*r*r+h*h)/12}" iyz = "0"
+              izz="${m*r*r/2}" /> 
+  </macro>
+  
+  <xacro:macro name="wheel" params="fb lr parent translateX translateY flipY"> <!--fb : front, back ; lr: left, right -->
+    <link name="${fb}_${lr}_wheel">
+      <visual>
+        <origin xyz="0 0 0" rpy="${flipY*M_PI/2} 0  0 " /> 
+        <geometry>
+          <cylinder length="${wheel_height}" radius="${wheel_radius}" />
+        </geometry>
+        <material name="DarkGray" />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="${flipY*M_PI/2} 0 0 " />
+        <geometry>
+          <cylinder length="${wheel_height}" radius="${wheel_radius}" />
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="${wheel_mass}" />
+        <origin xyz="0 0 0" />
+        <cylinder_inertia  m="${wheel_mass}" r="${wheel_radius}" h="${wheel_height}" />
+      </inertial>
+    </link>
+
+    <gazebo reference="${fb}_${lr}_wheel">
+      <mu1 value="1.0"/>
+      <mu2 value="1.0"/>
+      <kp  value="10000000.0" />
+      <kd  value="1.0" />
+      <fdir1 value="1 0 0"/>
+      <material>Gazebo/Grey</material>
+      <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+
+    <joint name="${fb}_${lr}_wheel_joint" type="continuous">
+      <parent link="${parent}"/>
+      <child link="${fb}_${lr}_wheel"/>
+      <origin xyz="${translateX * base_x_origin_to_wheel_origin} ${translateY * base_y_origin_to_wheel_origin} ${base_z_origin_to_wheel_origin}" rpy="0 0 0" /> 
+      <axis xyz="0 1 0" rpy="0  0" />
+      <limit effort="100" velocity="100"/>
+      <joint_properties damping="0.0" friction="0.0"/>
+    </joint>
+
+    <!-- Transmission is important to link the joints and the controller -->
+    <transmission name="${fb}_${lr}_wheel_joint_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${fb}_${lr}_wheel_joint" />
+      <actuator name="${fb}_${lr}_wheel_joint_motor">
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+   
+  </xacro:macro>
+</robot>

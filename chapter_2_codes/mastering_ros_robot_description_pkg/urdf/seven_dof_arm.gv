@@ -1,0 +1,56 @@
+digraph G {
+node [shape=box];
+"base_link" [label="base_link"];
+"bottom_link" [label="bottom_link"];
+"rgbd_camera_link" [label="rgbd_camera_link"];
+"rgbd_camera_depth_frame" [label="rgbd_camera_depth_frame"];
+"rgbd_camera_depth_optical_frame" [label="rgbd_camera_depth_optical_frame"];
+"rgbd_camera_optical_frame" [label="rgbd_camera_optical_frame"];
+"rgbd_camera_rgb_frame" [label="rgbd_camera_rgb_frame"];
+"rgbd_camera_rgb_optical_frame" [label="rgbd_camera_rgb_optical_frame"];
+"shoulder_pan_link" [label="shoulder_pan_link"];
+"shoulder_pitch_link" [label="shoulder_pitch_link"];
+"elbow_roll_link" [label="elbow_roll_link"];
+"elbow_pitch_link" [label="elbow_pitch_link"];
+"wrist_roll_link" [label="wrist_roll_link"];
+"wrist_pitch_link" [label="wrist_pitch_link"];
+"gripper_roll_link" [label="gripper_roll_link"];
+"gripper_finger_link1" [label="gripper_finger_link1"];
+"gripper_finger_link2" [label="gripper_finger_link2"];
+"grasping_frame" [label="grasping_frame"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_link" -> "bottom_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"bottom_joint" -> "bottom_link"
+"base_link" -> "rgbd_camera_joint" [label="xyz: 0.1 0 1 \nrpy: 0 1.309 0"]
+"rgbd_camera_joint" -> "rgbd_camera_link"
+"rgbd_camera_link" -> "rgbd_camera_depth_joint" [label="xyz: 0 0.049 0 \nrpy: 0 -0 0"]
+"rgbd_camera_depth_joint" -> "rgbd_camera_depth_frame"
+"rgbd_camera_depth_frame" -> "rgbd_camera_depth_optical_joint" [label="xyz: 0 0 0 \nrpy: -1.5708 -5.55112e-17 -1.5708"]
+"rgbd_camera_depth_optical_joint" -> "rgbd_camera_depth_optical_frame"
+"rgbd_camera_link" -> "rgbd_camera_optical_joint" [label="xyz: 0 0 0 \nrpy: -1.5708 -5.55112e-17 -1.5708"]
+"rgbd_camera_optical_joint" -> "rgbd_camera_optical_frame"
+"rgbd_camera_link" -> "rgbd_camera_rgb_joint" [label="xyz: 0 0.022 0 \nrpy: 0 -0 0"]
+"rgbd_camera_rgb_joint" -> "rgbd_camera_rgb_frame"
+"rgbd_camera_rgb_frame" -> "rgbd_camera_rgb_optical_joint" [label="xyz: 0 0 0 \nrpy: -1.5708 -5.55112e-17 -1.5708"]
+"rgbd_camera_rgb_optical_joint" -> "rgbd_camera_rgb_optical_frame"
+"base_link" -> "shoulder_pan_joint" [label="xyz: 0 0 0.05 \nrpy: 0 1.5708 0"]
+"shoulder_pan_joint" -> "shoulder_pan_link"
+"shoulder_pan_link" -> "shoulder_pitch_joint" [label="xyz: -0.041 0.0021 0 \nrpy: -1.57079 5.55112e-17 1.57079"]
+"shoulder_pitch_joint" -> "shoulder_pitch_link"
+"shoulder_pitch_link" -> "elbow_roll_joint" [label="xyz: -0.002 0 0.1206 \nrpy: 3.14159 1.5708 0"]
+"elbow_roll_joint" -> "elbow_roll_link"
+"elbow_roll_link" -> "elbow_pitch_joint" [label="xyz: -0.035 0 0 \nrpy: 0.055 1.5708 2.61491e-12"]
+"elbow_pitch_joint" -> "elbow_pitch_link"
+"elbow_pitch_link" -> "wrist_roll_joint" [label="xyz: 0 0.0081 -0.248 \nrpy: 0 1.5708 3.14159"]
+"wrist_roll_joint" -> "wrist_roll_link"
+"wrist_roll_link" -> "wrist_pitch_joint" [label="xyz: 0 0 0.0001 \nrpy: 0 1.5708 0"]
+"wrist_pitch_joint" -> "wrist_pitch_link"
+"wrist_pitch_link" -> "gripper_roll_joint" [label="xyz: 0 0 0.08 \nrpy: -1.5708 -1.57079 -4.18385e-11"]
+"gripper_roll_joint" -> "gripper_roll_link"
+"gripper_roll_link" -> "finger_joint1" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"finger_joint1" -> "gripper_finger_link1"
+"gripper_roll_link" -> "finger_joint2" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"finger_joint2" -> "gripper_finger_link2"
+"gripper_roll_link" -> "grasping_frame_joint" [label="xyz: 0.08 0 0 \nrpy: 0 -0 0"]
+"grasping_frame_joint" -> "grasping_frame"
+}
