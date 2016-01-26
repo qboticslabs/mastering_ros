@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find mastering_ros_robot_description_pkg)/urdf/sensors/xtion_pro_live.gazebo.xacro"/>
+
+  <xacro:macro name="dummy_inertial">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.001"/>
+      <inertia ixx="0.00001" ixy="0" ixz="0"
+               iyy="0.00001" iyz="0"
+               izz="0.00001"/>
+    </inertial>
+  </xacro:macro>
+
+  <xacro:macro name="xtion_pro_live" params="name parent *origin *optical_origin">
+
+    <!-- frames in the center of the camera -->
+    <joint name="${name}_joint" type="fixed">
+      <insert_block name="origin"/>
+      <parent link="${parent}_link"/>
+      <child link="${name}_link"/>
+    </joint>
+
+    <link name="${name}_link">
+      <inertial>
+        <origin xyz="-0.00936000000 -0.00003000000 -0.00273000000" rpy="0 0 0"/>
+        <mass value="0.21970000000"/>
+        <inertia ixx="0.00000429247" ixy="0.00000000000" ixz="0.00000002565"
+                 iyy="0.00000008027" iyz="0.00000000000"
+                 izz="0.00000427339"/>
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://mastering_ros_robot_description_pkg/meshes/sensors/xtion_pro_live/xtion_pro_live.dae"/>
+        </geometry>
+        <material name="DarkGrey"/>
+      </visual>
+    </link>
+
+    <joint name="${name}_optical_joint" type="fixed">
+      <insert_block name="optical_origin"/>
+      <parent link="${name}_link"/>
+      <child link="${name}_optical_frame"/>
+    </joint>
+
+    <link name="${name}_optical_frame">
+      <dummy_inertial/>
+    </link>
+
+    <!-- Depth sensor frames -->
+    <joint name="${name}_depth_joint" type="fixed">
+      <origin xyz="0.0 0.049 0.0" rpy="0 0 0"/>
+      <parent link="${name}_link"/>
+      <child link="${name}_depth_frame"/>
+    </joint>
+
+    <link name="${name}_depth_frame">
+      <dummy_inertial/>
+    </link>
+
+    <joint name="${name}_depth_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="${-90.0 * deg_to_rad} 0.0 ${-90.0 * deg_to_rad}"/>
+      <parent link="${name}_depth_frame"/>
+      <child link="${name}_depth_optical_frame"/>
+    </joint>
+
+    <link name="${name}_depth_optical_frame">
+      <dummy_inertial/>
+    </link>
+
+    <!-- RGB sensor frames -->
+    <joint name="${name}_rgb_joint" type="fixed">
+      <origin xyz="0.0 0.022 0.0" rpy="0 0 0"/>
+      <parent link="${name}_link"/>
+      <child link="${name}_rgb_frame"/>
+    </joint>
+
+    <link name="${name}_rgb_frame">
+      <dummy_inertial/>
+    </link>
+
+    <joint name="${name}_rgb_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="${-90.0 * deg_to_rad} 0.0 ${-90.0 * deg_to_rad}"/>
+      <parent link="${name}_rgb_frame"/>
+      <child link="${name}_rgb_optical_frame"/>
+    </joint>
+
+    <link name="${name}_rgb_optical_frame">
+      <dummy_inertial/>
+    </link>
+
+    <xacro:xtion_pro_live_rgbd_camera_gazebo name="${name}"/>
+  </xacro:macro>
+
+</robot>
