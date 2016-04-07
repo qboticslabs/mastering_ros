@@ -4,6 +4,14 @@
 ![book_cover](http://mastering-ros.com/images/section-image-1.jpg
  "Mastering ROS for Robotics Programming")
 
+
+### Buy book
+
+* [PACKT] (https://www.packtpub.com/hardware-and-creative/mastering-ros-robotics-programming)
+* [Amazon.com](http://amzn.com/B0198DXFEW)
+* [Amazon.in](http://www.amazon.in/dp/B0198DXFEW)
+
+
 ### Author
 
 * [Lentin Joseph](https://in.linkedin.com/in/lentinjoseph)
