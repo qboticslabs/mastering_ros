@@ -78,7 +78,7 @@ public:
 	if(!as.isActive() || as.isPreemptRequested()) return;
 	ros::Rate rate(5);
 	ROS_INFO("%s is processing the goal %d", action_name.c_str(), goal->count);
-	for(progress = 0 ; progress < goal->count; progress++){
+	for(progress = 1 ; progress <= goal->count; progress++){
 		//Check for ros
 		if(!ros::ok()){
 			result.final_count = progress;
@@ -92,10 +92,11 @@ public:
 			return;
 		}	
 
-		if(goal->count == progress){
+		if(goal->count <= progress){
 			ROS_INFO("%s Succeeded at getting to goal %d", action_name.c_str(), goal->count);
 			result.final_count = progress;
 			as.setSucceeded(result);
+
 		}else{
 			ROS_INFO("Setting to goal %d / %d",feedback.current_number,goal->count);
 			feedback.current_number = progress;
