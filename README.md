@@ -1,9 +1,8 @@
-#Mastering ROS for Robotics Programming 
+# Mastering ROS for Robotics Programming 
 
 #### [Mastering ROS for Robotics Programming](http://mastering-ros.com) book tutorials source code
 ![book_cover](http://mastering-ros.com/images/section-image-1.jpg
  "Mastering ROS for Robotics Programming")
-
 
 ### Buy book
 
@@ -32,4 +31,17 @@ The code is comaptible with ROS Jade and ROS Indigo. The detail installation ins
 * **Chapter 10**: Exploring advanced capabilities of ROS-MoveIt!
 * **Chapter 11**: ROS for Industrial Robots
 * **Chapter 12**: Troubleshooting and best practices in ROS
+
+### New book: ROS Robotics Projects
+
+![book_cover](http://rosrobots.com/img/ebook.png
+ "ROS Robotics Projects")
+
+
+### Buy book
+
+* [PACKT] (https://www.packtpub.com/hardware-and-creative/ros-robotics-projects)
+* [Amazon.com](https://www.amazon.com/ROS-Robotic-Projects-Lentin-Joseph/dp/1783554711)
+* [Amazon.in](https://www.amazon.in/ROS-Robotics-Projects-Lentin-Joseph-ebook/dp/B01MTJWNKI)
+
 
