@@ -6,7 +6,7 @@
 
 ### Buy book
 
-* [PACKT] (https://www.packtpub.com/hardware-and-creative/mastering-ros-robotics-programming)
+* [PACKT](https://www.packtpub.com/hardware-and-creative/mastering-ros-robotics-programming)
 * [Amazon.com](http://amzn.com/B0198DXFEW)
 * [Amazon.in](http://www.amazon.in/dp/B0198DXFEW)
 
@@ -32,7 +32,7 @@ The code is comaptible with ROS Jade and ROS Indigo. The detail installation ins
 * **Chapter 11**: ROS for Industrial Robots
 * **Chapter 12**: Troubleshooting and best practices in ROS
 
-### New book: ROS Robotics Projects
+### New book: [ROS Robotics Projects](http://rosrobots.com) 
 
 ![book_cover](http://rosrobots.com/img/ebook.png
  "ROS Robotics Projects")
@@ -40,7 +40,7 @@ The code is comaptible with ROS Jade and ROS Indigo. The detail installation ins
 
 ### Buy book
 
-* [PACKT] (https://www.packtpub.com/hardware-and-creative/ros-robotics-projects)
+* [PACKT](https://www.packtpub.com/hardware-and-creative/ros-robotics-projects)
 * [Amazon.com](https://www.amazon.com/ROS-Robotic-Projects-Lentin-Joseph/dp/1783554711)
 * [Amazon.in](https://www.amazon.in/ROS-Robotics-Projects-Lentin-Joseph-ebook/dp/B01MTJWNKI)
 
