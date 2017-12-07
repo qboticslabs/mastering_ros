@@ -16,7 +16,7 @@
 * [Lentin Joseph](https://in.linkedin.com/in/lentinjoseph)
 
 ### Installation
-The code is comaptible with ROS Jade and ROS Indigo. The detail installation instruction of each packages is mentioned on the book
+The code is compatible with ROS Jade and ROS Indigo. The detail installation instruction of each package is mentioned on the book
 
 ### Tutorials
 * **Chapter 1:**  Introduction to ROS and its Package Management
