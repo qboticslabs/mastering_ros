@@ -9,7 +9,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   )
 
-
+find_package(OpenCV REQUIRED)
 catkin_package()
 include_directories(
   ${catkin_INCLUDE_DIRS}
