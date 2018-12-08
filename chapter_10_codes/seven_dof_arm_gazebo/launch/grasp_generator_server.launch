@@ -4,12 +4,13 @@
   <arg name="group"        default="arm"/>
   <arg name="end_effector" default="gripper"/>
 
+    <rosparam command="load" file="$(find seven_dof_arm_gazebo)/config/$(arg robot)_grasp_data.yaml"/> 
+
 
   <node pkg="moveit_simple_grasps" type="moveit_simple_grasps_server" name="moveit_simple_grasps_server">
     <param name="group"        value="$(arg group)"/> 
     <param name="end_effector" value="$(arg end_effector)"/>
 
-    <rosparam command="load" file="$(find seven_dof_arm_gazebo)/config/$(arg robot)_grasp_data.yaml"/> 
 
   </node>
 
